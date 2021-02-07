@@ -18,3 +18,8 @@ hr.solid {
 body {
     background-color: #373b3e;
 }
+
+.text-center {
+    margin-top: 10px;
+    text-align: center;
+}
