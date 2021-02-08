@@ -19,22 +19,22 @@ app.use(express.static('photos'));
 
 app.set('view engine', 'pug');
 
-function getRandomMiku() {
+async function getRandomMiku() {
     var item = files[Math.floor(Math.random() * files.length)];
     return item
 }
 
-app.get('/', function(req, res) {
+app.get('/', async (req, res) => {
     // res.sendFile(path.join(__dirname + '/index.html'));
-    res.render('index', { title: 'Plush Miku!', message: 'Hello there!', image: '/' + getRandomMiku() });
+    res.render('index', { title: 'Plush Miku!', message: 'Hello there!', image: '/' + await getRandomMiku() });
 });
 
 app.get('/api', (req, res) => {
     res.send("This is the Miku API!");
 })
 
-app.get('/api/random', (req, res) => {
-    res.json({ username: getRandomMiku() });
+app.get('/api/random', async (req, res) => {
+    res.json({ username: await getRandomMiku() });
 });
 
 app.listen(port, () => console.log(`Miku app listening on port ${port}!`));
