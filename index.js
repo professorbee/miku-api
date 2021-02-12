@@ -26,7 +26,7 @@ async function getRandomMiku() {
 
 app.get('/', async (req, res) => {
     // res.sendFile(path.join(__dirname + '/index.html'));
-    res.render('index', { title: 'Plush Miku!', message: 'Hello there!', image: '/' + await getRandomMiku() });
+    res.render('index', { title: 'Plush Miku!', message: 'Hello there!', alttext: 'A random Miku.', image: '/' + await getRandomMiku() });
 });
 
 app.get('/api', (req, res) => {
